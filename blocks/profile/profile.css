@@ -1,0 +1,8 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}

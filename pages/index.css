@@ -8,3 +8,13 @@
 @import './../blocks/page/page.css';
 @import './../blocks/page/__container/page__container.css';
 
+@import './../blocks/profile/profile.css';
+@import './../blocks/profile/__add-pic-btn/profile__add-pic-btn.css';
+@import './../blocks/profile/__container/profile__container.css';
+@import './../blocks/profile/__container-info/profile__container-info.css';
+@import './../blocks/profile/__container-name/profile__container-name.css';
+@import './../blocks/profile/__edit-btn/profile__edit-btn.css';
+@import './../blocks/profile/__avatar/profile__avatar.css';
+@import './../blocks/profile/__job/profile__job.css';
+@import './../blocks/profile/__name/profile__name.css';
+
