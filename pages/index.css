@@ -26,3 +26,6 @@
 @import './../blocks/card/__name/card__name.css';
 
 @import './../blocks/cards/cards.css';
+
+@import './../blocks/footer/footer.css';
+@import './../blocks/footer/__copyright/footer__copyright.css';
