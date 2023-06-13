@@ -22,7 +22,7 @@
 @import '../blocks/card/__img/card__img.css';
 @import '../blocks/card/__info/card__info.css';
 @import '../blocks/card/__like-btn/card__like-btn.css';
-@import '../blocks/card/__like-btn//_active/card__like-btn_active.css';
+@import '../blocks/card/__like-btn/_active/card__like-btn_active.css';
 @import '../blocks/card/__name/card__name.css';
 
 @import '../blocks/cards/cards.css';

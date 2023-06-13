@@ -10,11 +10,11 @@ let inputJob = document.querySelector('.popup__input_type_job');
 
 
 function popupOpCl () {
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
   if (popup.classList.contains('popup_opened')) {
     popup.classList.remove('popup_opened')
   } else {
+    inputName.value = profileName.textContent;
+    inputJob.value = profileJob.textContent;
     popup.classList.add('popup_opened')
   };
 }
