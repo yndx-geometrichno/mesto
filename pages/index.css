@@ -29,3 +29,12 @@
 
 @import './../blocks/footer/footer.css';
 @import './../blocks/footer/__copyright/footer__copyright.css';
+
+@import './../blocks/popup/popup.css';
+@import './../blocks/popup/_opened/popup_opened.css';
+@import './../blocks/popup/__window/popup__window.css';
+@import './../blocks/popup/__save-btn/popup__save-btn.css';
+@import './../blocks/popup/__input/popup__input.css';
+@import './../blocks/popup/__header/popup__header.css';
+@import './../blocks/popup/__form/popup__form.css';
+@import './../blocks/popup/__close-btn/popup__close-btn.css';
