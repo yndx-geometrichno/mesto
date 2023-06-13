@@ -38,3 +38,5 @@
 @import './../blocks/popup/__header/popup__header.css';
 @import './../blocks/popup/__form/popup__form.css';
 @import './../blocks/popup/__close-btn/popup__close-btn.css';
+
+@import './../blocks/content/content.css';
