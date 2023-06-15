@@ -5,6 +5,9 @@
   background-color: rgba(0, 0, 0, 0);
   background-image: url('../../../images/like-btn.svg');
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .card__like-btn:hover {
