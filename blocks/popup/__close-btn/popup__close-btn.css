@@ -6,6 +6,7 @@
   background-color: rgba(0, 0, 0, 0);
   background-position: center;
   background-size: contain;
+  background-repeat: no-repeat;
   object-fit: contain;
   position: absolute;
   top: -40px;
