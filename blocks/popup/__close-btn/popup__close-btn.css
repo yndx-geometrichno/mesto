@@ -6,6 +6,7 @@
   background-color: rgba(0, 0, 0, 0);
   background-position: center;
   background-size: cover;
+  object-fit: contain;
   cursor: pointer;
   position: absolute;
   top: -40px;
