@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   object-fit: contain;
   position: absolute;
+  cursor: pointer;
   top: -40px;
   right: -40px;
 }
