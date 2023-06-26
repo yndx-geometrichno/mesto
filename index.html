@@ -27,48 +27,6 @@
         </div>
       </section>
       <section class="cards">
-        <article class="card">
-          <img class="card__img" src="./images/card-karachaevsk.png" alt="Карачаевск">
-          <div class="card__info">
-            <h2 class="card__name">Карачаевск</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </article>
-        <div class="card">
-          <img class="card__img" src="./images/card-elbrus.png" alt="Гора Эльбрус">
-          <div class="card__info">
-            <h2 class="card__name">Гора Эльбрус</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </div>
-        <article class="card">
-          <img class="card__img" src="./images/card-dombai.png" alt="Домбай">
-          <div class="card__info">
-            <h2 class="card__name">Домбай</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img class="card__img" src="./images/card-elbrus.png" alt="Гора Эльбрус">
-          <div class="card__info">
-            <h2 class="card__name">Гора Эльбрус</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img class="card__img" src="./images/card-dombai.png" alt="Домбай">
-          <div class="card__info">
-            <h2 class="card__name">Домбай</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img class="card__img" src="./images/card-karachaevsk.png" alt="Карачаево-Черкессия">
-          <div class="card__info">
-            <h2 class="card__name">Карачаево-Черкессия</h2>
-            <button type="button" class="card__like-btn" aria-label="Нравится"></button>
-          </div>
-        </article>
       </section>
     </main>
     <footer class="footer">
@@ -86,6 +44,30 @@
       <button aria-label="Закрыть" type="button" class="popup__close-btn"></button>
     </div>
   </div>
+
+  <template class="template-card">
+    <article class="card">
+      <button type="button" class="card__delete-btn"></button>
+      <img class="card__img">
+      <div class="card__info">
+        <h2 class="card__name"></h2>
+        <button type="button" class="card__like-btn" aria-label="Нравится"></button>
+      </div>
+    </article>
+  </template>
+  <template class="template-popup">
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__header">Редактировать профиль</h2>
+        <form name="profile-info" action="#" method="get" class="popup__form">
+          <input type="text" maxlength="35" name="name" class="popup__input popup__input_type_name" placeholder="Ваше имя">
+          <input type="text" maxlength="35" name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия">
+          <input type="submit" value="Сохранить" class="popup__save-btn">
+        </form>
+        <button aria-label="Закрыть" type="button" class="popup__close-btn"></button>
+      </div>
+    </div>
+  </template>
 
   <script src="./scripts/index.js"></script>
 </body>
