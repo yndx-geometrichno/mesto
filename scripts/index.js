@@ -74,6 +74,11 @@ const createCard = ({name, link}) => {
     cardElem.remove();
   });
 
+  const likeBtn = cardElem.querySelector('.card__like-btn');
+  likeBtn.addEventListener('click', () => {
+    likeBtn.classList.toggle('card__like-btn_active');
+  })
+
   return cardElem;
 };
 
@@ -84,3 +89,4 @@ initialCards.forEach((item) => {
 })
 
 
+const templatePopup = document.querySelector('.template-popup')
