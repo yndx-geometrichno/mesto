@@ -32,3 +32,55 @@ function handleFormSubmit (evt) {
 }
 
 popupForm.addEventListener('submit', handleFormSubmit);
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+let cardsContainer = document.querySelector('.cards');
+let templateCard = document.querySelector('.template-card');
+
+const createCard = ({name, link}) => {
+  const clone = templateCard.content.cloneNode(true);
+  const cardElem = clone.querySelector('.card');
+  cardElem.querySelector('.card__img').src = link;
+  cardElem.querySelector('.card__img').alt = name;
+  cardElem.querySelector('.card__name').textContent = name;
+
+  const deleteElem = cardElem.querySelector('.card__delete-btn');
+  deleteElem.addEventListener('click', () => {
+    cardElem.remove();
+  });
+
+  return cardElem;
+};
+
+
+initialCards.forEach((item) => {
+  const cardElem = createCard(item);
+  cardsContainer.append(cardElem);
+})
+
+
