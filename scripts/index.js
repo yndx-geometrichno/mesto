@@ -1,19 +1,18 @@
-let editProfileBtn = document.querySelector('.profile__edit-btn');
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
-let popupProfile = document.querySelector('.popup_type_profile');
-let popupCard = document.querySelector('.popup_type_card');
-let popupCloseBtn = document.querySelectorAll('.popup__close-btn');
-let popupProfileForm = document.querySelector('.popup__form-profile');
-let popupCardForm = document.querySelector('.popup__form-card');
-let inputProfileName = document.querySelector('.popup__input_type_profile-name');
-let inputJob = document.querySelector('.popup__input_type_job');
-let inputCardName = document.querySelector('.popup__input_type_card-name');
-let inputUrl = document.querySelector('.popup__input_type_url');
-let addCardBtn = document.querySelector('.profile__add-pic-btn');
-let cardsContainer = document.querySelector('.cards');
-let templateCard = document.querySelector('.template-card');
-let popupPhoto = document.querySelector('.popup_type_photo');
+const editProfileBtn = document.querySelector('.profile__edit-btn');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const popupProfile = document.querySelector('.popup_type_profile');
+const popupCard = document.querySelector('.popup_type_card');
+const popupCloseBtns = document.querySelectorAll('.popup__close-btn');
+const popupProfileForm = document.querySelector('.popup__form-profile');
+const popupCardForm = document.querySelector('.popup__form-card');
+const inputProfileName = document.querySelector('.popup__input_type_profile-name');
+const inputJob = document.querySelector('.popup__input_type_job');
+const inputUrl = document.querySelector('.popup__input_type_url');
+const addCardBtn = document.querySelector('.profile__add-pic-btn');
+const cardsContainer = document.querySelector('.cards');
+const templateCard = document.querySelector('.template-card');
+const popupPhoto = document.querySelector('.popup_type_photo');
 
 
 
@@ -29,7 +28,7 @@ function popupCardOpen () {
 
 
 function popupClose () {
-  let popup = document.querySelectorAll('.popup');
+  const popup = document.querySelectorAll('.popup');
   for (let i = 0; i < popup.length; i++) {
     popup[i].style = 'opacity: 0;';
     const visibility = () => {
@@ -41,8 +40,8 @@ function popupClose () {
 
 editProfileBtn.addEventListener('click', popupProfileOpen);
 
-for (i = 0; i < popupCloseBtn.length; i++) {
-  popupCloseBtn[i].addEventListener('click', popupClose);
+for (i = 0; i < popupCloseBtns.length; i++) {
+  popupCloseBtns[i].addEventListener('click', popupClose);
 
 }
 
@@ -70,32 +69,6 @@ function handleCardFormSubmit (evt) {
 
 popupCardForm.addEventListener('submit', handleCardFormSubmit);
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 const createCard = ({name, link}) => {
   const clone = templateCard.content.cloneNode(true);
