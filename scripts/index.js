@@ -4,6 +4,8 @@ const profileName = document.querySelector('.profile__name');
 
 const profileJob = document.querySelector('.profile__job');
 
+const popups = document.querySelectorAll('.popup');
+
 const popupProfile = document.querySelector('.popup_type_profile');
 
 const popupCard = document.querySelector('.popup_type_card');
@@ -37,32 +39,18 @@ const popupImg = popupPhoto.querySelector('.photo-popup__photo');
 const popupImgHeader = popupPhoto.querySelector('.photo-popup__header');
 
 function openPopup (popup) {
-  switch (popup) {
-  case 'profile':
-    inputProfileName.value = profileName.textContent;
-    inputJob.value = profileJob.textContent;
-    popupProfile.classList.add('popup_opened');
-    break;
-  case 'card':
-    popupCard.classList.add('popup_opened');
-    break;
-  case 'photo':
-    popupPhoto.classList.add('popup_opened');
-  }
+  popup.classList.add('popup_opened');
 }
 
-function closePopup () {
-  const popup = document.querySelectorAll('.popup');
-  for (let i = 0; i < popup.length; i++) {
-    popup[i].classList.remove('popup_opened');
-  }
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
 }
 
 function handleProfileFormSubmit (evt) {
   evt.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileJob.textContent = inputJob.value;
-  closePopup();
+  closePopup(popupProfile);
 }
 
 function handleCardFormSubmit (evt) {
@@ -72,7 +60,7 @@ function handleCardFormSubmit (evt) {
   cardsContainer.prepend(createCard({name, link}));
   cardName.value = '';
   cardLink.value = '';
-  closePopup();
+  closePopup(popupCard);
 }
 
 const createCard = ({name, link}) => {
@@ -82,7 +70,6 @@ const createCard = ({name, link}) => {
   cardImg.src = link;
   cardImg.alt = name;
   cardElem.querySelector('.card__name').textContent = name;
-
   const deleteElem = cardElem.querySelector('.card__delete-btn');
   deleteElem.addEventListener('click', () => {
     cardElem.remove();
@@ -98,7 +85,7 @@ const createCard = ({name, link}) => {
     popupImg.src = link;
     popupImg.alt = name;
     popupImgHeader.textContent = name;
-    openPopup('photo');
+    openPopup(popupPhoto);
   })
 
   return cardElem;
@@ -110,15 +97,20 @@ initialCards.forEach((item) => {
 })
 
 editProfileBtn.addEventListener('click', () => {
-  openPopup('profile');
+  inputProfileName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  openPopup(popupProfile);
 });
 
 for (i = 0; i < popupCloseBtns.length; i++) {
-  popupCloseBtns[i].addEventListener('click', closePopup);
+  popupCloseBtns[i].addEventListener('click', () => {
+    for (j = 0; j < popups.length; j++) {
+      closePopup(popups[j]);
+  }});
 }
 
 addCardBtn.addEventListener('click', () => {
-  openPopup('card');
+  openPopup(popupCard);
 });
 
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
