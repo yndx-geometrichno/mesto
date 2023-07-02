@@ -102,12 +102,9 @@ editProfileBtn.addEventListener('click', () => {
   openPopup(popupProfile);
 });
 
-for (i = 0; i < popupCloseBtns.length; i++) {
-  popupCloseBtns[i].addEventListener('click', () => {
-    for (j = 0; j < popups.length; j++) {
-      closePopup(popups[j]);
-  }});
-}
+popupCloseBtns.forEach(element => element.addEventListener('click', () => {
+  closePopup(element.closest('.popup'));
+}));
 
 addCardBtn.addEventListener('click', () => {
   openPopup(popupCard);
