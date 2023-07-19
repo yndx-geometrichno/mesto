@@ -61,14 +61,14 @@ function handleClick(popup) {
 }
 
 function handleProfileFormSubmit (evt) {
-  evt.preventDefault();
+  // evt.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileJob.textContent = inputJob.value;
   closePopup(popupProfile);
 }
 
 function handleCardFormSubmit (evt) {
-  evt.preventDefault();
+  // evt.preventDefault();
   const name = cardName.value;
   const link = cardLink.value;
   cardsContainer.prepend(createCard({name, link}));
@@ -132,5 +132,4 @@ popupCardForm.addEventListener('submit', handleCardFormSubmit);
 
 const disableBtn = (item) => {
   item.querySelector('.popup__save-btn').classList.add('popup__save-btn_type_disabled');
-  item.querySelector('.popup__save-btn').setAttribute('disabled', true);
 }
