@@ -38,11 +38,11 @@
       <h2 class="popup__header">Редактировать профиль</h2>
       <form name="profile-info" action="#" method="get" class="popup__form popup__form-profile" novalidate>
         <label class="popup__input-container">
-          <input id="profileName-input" type="text" required name="profileName" class="popup__input popup__input_type_profile-name" placeholder="Ваше имя" required minlength="2" maxlength="40">
+          <input id="profileName-input" type="text" name="profileName" class="popup__input popup__input_type_profile-name" placeholder="Ваше имя" required minlength="2" maxlength="40">
           <span class="profileName-input-error popup__error"></span>
         </label>
         <label class="popup__input-container">
-          <input id="job-input" type="text" required name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия" required minlength="2" maxlength="200">
+          <input id="job-input" type="text" name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия" required minlength="2" maxlength="200">
           <span class="job-input-error popup__error"></span>
         </label>
         <input type="submit" value="Сохранить" class="popup__save-btn">
@@ -55,11 +55,11 @@
       <h2 class="popup__header">Новое место</h2>
       <form name="card-info" action="#" method="get" class="popup__form popup__form-card" novalidate>
         <label class="popup__input-container">
-          <input id="cardName-input" type="text" required name="cardName" class="popup__input popup__input_type_card-name" placeholder="Название" required minlength="2" maxlength="30">
+          <input id="cardName-input" type="text" name="cardName" class="popup__input popup__input_type_card-name" placeholder="Название" required minlength="2" maxlength="30">
           <span class="cardName-input-error popup__error"></span>
         </label>
         <label class="popup__input-container">
-          <input id="url-input" type="url" required name="url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
+          <input id="url-input" type="url" name="url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
           <span class="url-input-error popup__error"></span>
         </label>
         <input type="submit" value="Сохранить" class="popup__save-btn popup__save-btn_type_disabled">
