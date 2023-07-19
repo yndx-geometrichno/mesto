@@ -134,8 +134,3 @@ const disableBtn = (item) => {
   item.querySelector('.popup__save-btn').classList.add('popup__save-btn_type_disabled');
   item.querySelector('.popup__save-btn').setAttribute('disabled', true);
 }
-
-
-
-
-
