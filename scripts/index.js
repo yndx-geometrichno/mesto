@@ -40,10 +40,24 @@ const popupImgHeader = popupPhoto.querySelector('.photo-popup__header');
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
+  handleClick(popup);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+}
+
+function handleClick(popup) {
+  popup.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      closePopup(popup);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    };
+  });
 }
 
 function handleProfileFormSubmit (evt) {
@@ -100,6 +114,7 @@ editProfileBtn.addEventListener('click', () => {
   inputProfileName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(popupProfile);
+  disableBtn(popupProfile);
 });
 
 popupCloseBtns.forEach(element => element.addEventListener('click', () => {
@@ -108,13 +123,17 @@ popupCloseBtns.forEach(element => element.addEventListener('click', () => {
 
 addCardBtn.addEventListener('click', () => {
   openPopup(popupCard);
+  disableBtn(popupCard);
 });
 
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 popupCardForm.addEventListener('submit', handleCardFormSubmit);
 
-
+const disableBtn = (item) => {
+  item.querySelector('.popup__save-btn').classList.add('popup__save-btn_type_disabled');
+  item.querySelector('.popup__save-btn').setAttribute('disabled', true);
+}
 
 
 

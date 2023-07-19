@@ -14,7 +14,7 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/profile-avatar.png" alt='Фото профиля'>
+        <img class="profile__avatar" src="./images/profile-avatar.png" alt="Фото профиля">
         <div class="profile__container">
           <div class="profile__container-info">
             <div class="profile__container-name">
@@ -36,9 +36,15 @@
   <div class="popup popup_type_profile">
     <div class="popup__container">
       <h2 class="popup__header">Редактировать профиль</h2>
-      <form name="profile-info" action="#" method="get" class="popup__form-profile">
-        <input type="text" required maxlength="35" name="profileName" class="popup__input popup__input_type_profile-name" placeholder="Ваше имя">
-        <input type="text" required maxlength="35" name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия">
+      <form name="profile-info" action="#" method="get" class="popup__form popup__form-profile" novalidate>
+        <label class="popup__input-container">
+          <input id="profileName-input" type="text" required maxlength="35" name="profileName" class="popup__input popup__input_type_profile-name" placeholder="Ваше имя" required minlength="2" maxlength="40">
+          <span class="profileName-input-error popup__error"></span>
+        </label>
+        <label class="popup__input-container">
+          <input id="job-input" type="text" required maxlength="35" name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия" required minlength="2" maxlength="200">
+          <span class="job-input-error popup__error"></span>
+        </label>
         <input type="submit" value="Сохранить" class="popup__save-btn">
       </form>
       <button aria-label="Закрыть" type="button" class="popup__close-btn"></button>
@@ -47,10 +53,16 @@
   <div class="popup popup_type_card">
     <div class="popup__container">
       <h2 class="popup__header">Новое место</h2>
-      <form name="card-info" action="#" method="get" class="popup__form popup__form-card">
-        <input type="text" required maxlength="35" name="cardName" class="popup__input popup__input_type_card-name" placeholder="Название">
-        <input type="url" required name="url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку">
-        <input type="submit" value="Сохранить" class="popup__save-btn">
+      <form name="card-info" action="#" method="get" class="popup__form popup__form-card" novalidate>
+        <label class="popup__input-container">
+          <input id="cardName-input" type="text" required maxlength="35" name="cardName" class="popup__input popup__input_type_card-name" placeholder="Название" required minlength="2" maxlength="30">
+          <span class="cardName-input-error popup__error"></span>
+        </label>
+        <label class="popup__input-container">
+          <input id="url-input" type="url" required name="url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
+          <span class="url-input-error popup__error"></span>
+        </label>
+        <input type="submit" value="Сохранить" class="popup__save-btn popup__save-btn_type_disabled">
       </form>
       <button aria-label="Закрыть" type="button" class="popup__close-btn"></button>
     </div>
@@ -75,6 +87,7 @@
   </template>
 
   <script src="./scripts/constants.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
