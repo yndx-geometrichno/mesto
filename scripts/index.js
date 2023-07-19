@@ -40,24 +40,32 @@ const popupImgHeader = popupPhoto.querySelector('.photo-popup__header');
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-  handleClick(popup);
+  addPopupEventListeners(popup);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('click', closeClickPopup);
+  document.removeEventListener('keydown', closeEscPopup);
 }
 
-function handleClick(popup) {
-  popup.addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-      closePopup(popup);
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closePopup(popup);
-    };
-  });
+function addPopupEventListeners(popup) {
+  popup.addEventListener('click', closeClickPopup);
+  document.addEventListener('keydown', closeEscPopup);
+}
+
+function closeClickPopup (e) {
+  if (e.target === e.currentTarget) {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+}
+
+function closeEscPopup (e) {
+  if (e.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  };
 }
 
 function handleProfileFormSubmit (evt) {

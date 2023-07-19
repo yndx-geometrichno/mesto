@@ -23,3 +23,7 @@
     background-size: 16px;
   }
 }
+
+.profile__add-pic-btn:focus {
+  outline: none;
+}
