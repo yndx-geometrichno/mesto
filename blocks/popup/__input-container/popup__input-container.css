@@ -1,7 +1,7 @@
 .popup__input-container {
   display: flex;
   flex-direction: column;
-  height: 44px;
+  min-height: 44px;
   gap: 5px;
 }
 
