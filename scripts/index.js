@@ -1,4 +1,5 @@
 import { Card } from "./card.js";
+import { FormValidator, validationSettings } from "./formValidator.js";
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
@@ -85,3 +86,12 @@ addCardBtn.addEventListener("click", () => {
 popupProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
 popupCardForm.addEventListener("submit", handleCardFormSubmit);
+
+
+const formList = Array.from(document.querySelectorAll(".popup__form"));
+
+formList.forEach((formElement) => {
+  // console.log(formElement.classList[1]);
+  const validationItem = new FormValidator(validationSettings, formElement.classList[1])
+  validationItem.enableValidation();
+})
