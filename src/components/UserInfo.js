@@ -8,7 +8,7 @@ export default class UserInfo {
     //возвращает объект с данными пользователя
     return {
       name: this._nameEl.textContent,
-      about: this._aboutEl.textContent
+      about: this._aboutEl.textContent,
     };
   }
 

@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto.Russia</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
   <div class="page__container">
@@ -14,7 +13,7 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/profile-avatar.png" alt="Фото профиля">
+        <img class="profile__avatar" src="<%=require('./images/profile-avatar.png')%>" alt="Фото профиля">
         <div class="profile__container">
           <div class="profile__container-info">
             <div class="profile__container-name">
@@ -85,7 +84,5 @@
       </div>
     </article>
   </template>
-
-  <script type="module" src="./pages/index.js"></script>
 </body>
 </html>

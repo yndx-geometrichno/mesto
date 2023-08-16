@@ -1,10 +1,10 @@
 export const validationSettings = {
-  formSelector: 'popup__form',
-  inputSelector: 'popup__input',
-  submitButtonSelector: 'popup__save-btn',
-  inactiveButtonClass: 'popup__save-btn_type_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible',
+  formSelector: "popup__form",
+  inputSelector: "popup__input",
+  submitButtonSelector: "popup__save-btn",
+  inactiveButtonClass: "popup__save-btn_type_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
 };
 
 export class FormValidator {
@@ -19,22 +19,24 @@ export class FormValidator {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(`.${this._inputSelector}`)
     );
-    this._buttonElement = this._formElement.querySelector(`.${this._submitButtonSelector}`);
+    this._buttonElement = this._formElement.querySelector(
+      `.${this._submitButtonSelector}`
+    );
   }
 
   _setEventListeners() {
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', () => {
+      inputElement.addEventListener("input", () => {
         this._isValid(inputElement);
         this._toggleSubmitButton(this._buttonElement);
       });
     });
 
-    this._formElement.addEventListener('submit', (evt) => {
+    this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
 
-    this._formElement.addEventListener('reset', () => {
+    this._formElement.addEventListener("reset", () => {
       this._disableSubmitButton(this._buttonElement);
     });
   }
@@ -47,7 +49,7 @@ export class FormValidator {
 
   _showInputError = (inputElement) => {
     const errorElement = inputElement
-      .closest('label')
+      .closest("label")
       .querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.add(this._inputErrorClass);
@@ -57,12 +59,12 @@ export class FormValidator {
 
   _hideInputError = (inputElement) => {
     const errorElement = inputElement
-      .closest('label')
+      .closest("label")
       .querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
-    errorElement.textContent = '';
+    errorElement.textContent = "";
   };
 
   _isValid(inputElement) {
@@ -75,12 +77,12 @@ export class FormValidator {
 
   _disableSubmitButton(buttonElement) {
     buttonElement.classList.add(this._inactiveButtonClass);
-    buttonElement.setAttribute('disabled', false);
+    buttonElement.setAttribute("disabled", false);
   }
 
   _enableSubmitButton(buttonElement) {
     buttonElement.classList.remove(this._inactiveButtonClass);
-    buttonElement.removeAttribute('disabled', true);
+    buttonElement.removeAttribute("disabled", true);
   }
 
   _toggleSubmitButton(buttonElement) {

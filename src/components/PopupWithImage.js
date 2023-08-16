@@ -1,5 +1,5 @@
 import Popup from "./Popup.js";
-import { popupPhoto, popupOpenedPhoto, popupPhotoHeader } from './utils.js';
+import { popupPhoto, popupOpenedPhoto, popupPhotoHeader } from "./utils.js";
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
@@ -10,8 +10,8 @@ export default class PopupWithImage extends Popup {
     popupOpenedPhoto.src = link;
     popupOpenedPhoto.alt = name;
     popupPhotoHeader.textContent = name;
-    this._popup.classList.add('popup_opened');
+    this._popup.classList.add("popup_opened");
     super.setEventListeners();
-    document.addEventListener('keydown', this._handleEscClose);
+    document.addEventListener("keydown", this._handleEscClose);
   }
 }
