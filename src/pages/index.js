@@ -19,7 +19,6 @@ const buttonOpenPopupProfile = document.querySelector(".profile__edit-btn");
 const inputProfileName = document.querySelector(".popup__input_type_profile-name");
 const inputJob = document.querySelector(".popup__input_type_job");
 const buttonOpenPopupCard = document.querySelector(".profile__add-pic-btn");
-const formList = Array.from(document.querySelectorAll(".popup__form"));
 const popupProfileForm = document.querySelector(".popup__form-profile");
 const popupCardForm = document.querySelector(".popup__form-card");
 
