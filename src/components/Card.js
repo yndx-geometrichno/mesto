@@ -15,18 +15,20 @@ export default class Card {
 
   _setEventListeners() {
     const deleteElem = this._element.querySelector(".card__delete-btn");
-    deleteElem.addEventListener("click", () => {
+    const handleDeleteBtnClick = () => {
       deleteElem.closest(".card").remove();
-    });
+    };
+    deleteElem.addEventListener("click", handleDeleteBtnClick);
 
     const likeBtn = this._element.querySelector(".card__like-btn");
-    likeBtn.addEventListener("click", () => {
+    const handleLikeBtnClick = () => {
       likeBtn.classList.toggle("card__like-btn_active");
-    });
+    };
+    likeBtn.addEventListener("click", handleLikeBtnClick);
 
     const cardPhoto = this._element.querySelector(".card__img");
     cardPhoto.addEventListener("click", () => {
-      this._handleCardClick(this._name, this._link)
+      this._handleCardClick(this._name, this._link);
     });
   }
 
