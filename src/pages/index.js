@@ -1,5 +1,6 @@
+import Api from "../components/Api.js";
 import { FormValidator } from "../components/FormValidator.js";
-import { validationSettings, initialCards } from "../utils/constants.js";
+import { validationSettings } from "../utils/constants.js";
 import Section from "../components/section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -22,6 +23,21 @@ const buttonOpenPopupCard = document.querySelector(".profile__add-pic-btn");
 const popupProfileForm = document.querySelector(".popup__form-profile");
 const popupCardForm = document.querySelector(".popup__form-card");
 
+const apiConfig = {
+  url: "https://mesto.nomoreparties.co/v1/cohort-74",
+  headers: {
+    authorization: '1a4f8f06-b6f0-4df4-84b8-b4034a99d943',
+    "Content-type": "application/json"
+  }
+};
+
+const api = new Api(apiConfig);
+
+api.getInitialCards()
+  .then((data) => {
+    cardsSection.renderItems(data);
+  })
+
 const cardsSection = new Section(
   {
     renderer: (item) => {
@@ -32,7 +48,6 @@ const cardsSection = new Section(
   cardsContainerSelector
 );
 
-cardsSection.renderItems(initialCards);
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
