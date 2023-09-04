@@ -11,6 +11,7 @@
   padding: 0;
   font-size: 18px;
   line-height: 22px;
+  max-width: 358px;
 }
 
 .popup__save-btn:hover {
