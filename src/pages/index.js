@@ -1,6 +1,6 @@
 import Api from "../components/Api.js";
 import { FormValidator } from "../components/FormValidator.js";
-import { validationSettings } from "../utils/constants.js";
+import { validationSettings, popupDeleteCardSelector } from "../utils/constants.js";
 import Section from "../components/section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -32,7 +32,6 @@ const buttonOpenPopupCard = document.querySelector(".profile__add-pic-btn");
 const popupProfileForm = document.querySelector(".popup__form-profile");
 const popupCardForm = document.querySelector(".popup__form-card");
 const popupAvatarForm = document.querySelector(".popup__form-avatar");
-const popupDeleteCardSelector = ".popup_type_delete-card-confirmation";
 
 const apiConfig = {
   url: "https://mesto.nomoreparties.co/v1/cohort-74",
@@ -47,10 +46,10 @@ const api = new Api(apiConfig);
 let myId = "";
 
 Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
-  ([getUserInfo, getInitialCards]) => {
-    userInfo.setUserInfo(getUserInfo);
-    myId = getUserInfo._id;
-    cardsSection.renderItems(getInitialCards);
+  ([userInfoFromServer, initialCardsFromServer]) => {
+    userInfo.setUserInfo(userInfoFromServer);
+    myId = userInfoFromServer._id;
+    cardsSection.renderItems(initialCardsFromServer.reverse());
   }
 );
 
@@ -73,10 +72,10 @@ const userInfo = new UserInfo({
 const popupChangeAvatar = new PopupWithForm(popupChangeAvatarSelector, {
   submitCallback: (newValues, submitBtn) => {
     changeSubmitBtnStatus(submitBtn, 'Сохранение...');
-    api.updateAvatar(newValues);
-    api.getUserInfo().then((data) => {
-      userInfo.setUserInfo(data);
-    }).finally(() => {
+    api.updateAvatar(newValues)
+      .then((data) => {
+        userInfo.setUserInfo(data);
+      }).finally(() => {
         setTimeout(changeSubmitBtnStatus, 1000, submitBtn, 'Сохранить');
         popupChangeAvatar.close();
       });
@@ -94,10 +93,10 @@ popupChangeAvatar.setEventListeners();
 const popupProfileOpened = new PopupWithForm(popupProfileSelector, {
   submitCallback: (newValues, submitBtn) => {
     changeSubmitBtnStatus(submitBtn, 'Сохранение...');
-    api.updateUserInfo(newValues);
-    api.getUserInfo().then((data) => {
-      userInfo.setUserInfo(data);
-    }).finally(() => {
+    api.updateUserInfo(newValues)
+      .then((data) => {
+        userInfo.setUserInfo(data);
+      }).finally(() => {
         setTimeout(changeSubmitBtnStatus, 1000, submitBtn, 'Сохранить');
         popupProfileOpened.close();
       });
@@ -140,7 +139,7 @@ buttonOpenPopupCard.addEventListener("click", () => {
 });
 
 const popupDeleteCardOpened = new PopupWithButton(popupDeleteCardSelector, {
-  submitCallback: (id, deleteElem, submitBtn) => {
+  submitCallback: ({ id, deleteElem }, submitBtn) => {
     handleDeleteCard(id, deleteElem, submitBtn);
   },
 });
@@ -198,7 +197,8 @@ function changeSubmitBtnStatus(submitBtn, value) {
 
 function handleDeleteBtnClick(id, deleteElem) {
   popupDeleteCardOpened.open();
-  popupDeleteCardOpened.setData(id, deleteElem);
+  const data = { id, deleteElem }
+  popupDeleteCardOpened.confirmSettings(data);
 }
 
 function apiSetLike(cardId, likeCounter) {

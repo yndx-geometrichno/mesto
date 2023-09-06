@@ -24,7 +24,7 @@ export default class Api {
   }
 
   updateUserInfo({ profileName, about }) {
-    fetch(`${this._url}/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -35,7 +35,7 @@ export default class Api {
   }
 
   updateAvatar({ avatar }) {
-    fetch(`${this._url}/users/me/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

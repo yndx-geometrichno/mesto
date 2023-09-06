@@ -8,13 +8,8 @@ export default class PopupWithButton extends Popup {
     this._submitCallback = submitCallback;
   }
 
-  _confirmAction(handleAction) {
-    this._confirmAction = handleAction;
-  }
-
-  setData(id, deleteElem) {
-    this._cardId = id;
-    this._deleteElem = deleteElem;
+  confirmSettings(settings) {
+    this._confirmSettings = settings;
   }
 
   setEventListeners() {
@@ -22,7 +17,7 @@ export default class PopupWithButton extends Popup {
 
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._submitCallback(this._cardId, this._deleteElem, this._submitBtn);
+      this._submitCallback(this._confirmSettings, this._submitBtn);
     });
   }
 }
